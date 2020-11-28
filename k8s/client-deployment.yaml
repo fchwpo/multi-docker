@@ -17,7 +17,7 @@ spec:
         image: fchwpo/multi-client
         ports:
           - containerPort: 3000
-        resources:
-          limits:
-            cpu: "1"
-            memory: 128M
+        # resources:
+        #   limits:
+        #     cpu: "1"
+        #     memory: 128M

@@ -33,10 +33,10 @@ spec:
             - mountPath: /var/lib/postgresql/data
               name: postgres-storage
               subPath: postgres
-          resources:
-            limits:
-              cpu: "1"
-              memory: 256M
+          # resources:
+          #   limits:
+          #     cpu: "1"
+          #     memory: 256M
               
 # To connect to postgres database running in pod
 # kubectl exec -it postgres-deployment-75df894b65-jgm4s -- psql -U postgres --password postgres
