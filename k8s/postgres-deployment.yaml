@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: postgres-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      container: postgres
+  template:
+    metadata:
+      labels:
+        container: postgres
+    spec:
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: database-persistent-volume-claim
+      containers:
+        - name: cont-postgres
+          image: postgres
+          ports:
+            - containerPort: 5432
+          env:
+            # - name: PGPASSWORD
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: pgpassword
+            #       key: PGPASSWORD
+            - name: POSTGRES_PASSWORD
+              value: password
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgres-storage
+              subPath: postgres
+          resources:
+            limits:
+              cpu: "1"
+              memory: 256M
+              
+# To connect to postgres database running in pod
+# kubectl exec -it postgres-deployment-75df894b65-jgm4s -- psql -U postgres --password postgres

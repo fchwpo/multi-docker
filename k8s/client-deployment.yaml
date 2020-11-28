@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      container: client-web
+  template:
+    metadata:
+      labels:
+        container: client-web
+    spec:
+      containers:
+      - name: cont-client
+        image: stephengrider/multi-client
+        ports:
+          - containerPort: 3000
+        resources:
+          limits:
+            cpu: "1"
+            memory: 128M
