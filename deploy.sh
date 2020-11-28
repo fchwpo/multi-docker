@@ -11,6 +11,6 @@ docker push fchwpo/multi-server:$SHA
 docker push fchwpo/multi-worker:$SHA
 
 kubectl apply -f k8s
-kubectl set image deployments/server-deployment server=fchwpo/multi-server:$SHA
-kubectl set image deployments/client-deployment client=fchwpo/multi-client:$SHA
-kubectl set image deployments/worker-deployment worker=fchwpo/multi-worker:$SHA
+kubectl set image deployments/server-deployment cont-server=fchwpo/multi-server:$SHA
+kubectl set image deployments/client-deployment cont-client=fchwpo/multi-client:$SHA
+kubectl set image deployments/worker-deployment cont-worker=fchwpo/multi-worker:$SHA

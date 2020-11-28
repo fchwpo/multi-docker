@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: cont-server
-        image: stephengrider/multi-server
+        image: fchwpo/multi-server
         ports:
           - containerPort: 5000
         resources:

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: cont-worker
-          image: stephengrider/multi-worker
+          image: fchwpo/multi-worker
           resources:
             limits:
               cpu: "1"
