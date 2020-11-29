@@ -12,7 +12,7 @@ spec:
   tls:
     - hosts:
       - multik8s.vshubham.co
-      - www.multik8s.vshubham.co
+      # - www.multik8s.vshubham.co
       secretName: multik8s-vshubham-co
   rules:
     - http:
